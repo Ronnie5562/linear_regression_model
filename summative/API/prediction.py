@@ -4,7 +4,7 @@ from typing import Literal
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from fastapi.middleware.cors import CORSMiddleware
-from summative.linear_regression import merge_files
+# from summative.linear_regression import merge_files
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -24,28 +24,32 @@ app.add_middleware(
 model = None
 
 # Function to reassemble the model on startup
-@app.on_event("startup")
-def reassemble_model():
-    global model
-    try:
-        print("Reassembling model...")
-        # Merge the model chunks
-        merge_files.merge_files(
-            "prediction.pkl",
-            "summative/linear_regression/model_split"
-        )
-        print("Model reassembled successfully.")
-    except FileNotFoundError:
-        print("Model chunks not found. Skipping reassembly.")
-        exit()
-    except Exception as e:
-        print(f"An error occurred while reassembling the model: {e}")
-        exit()
+# @app.on_event("startup")
+# def reassemble_model():
+#     global model
+#     try:
+#         print("Reassembling model...")
+#         # Merge the model chunks
+#         merge_files.merge_files(
+#             "prediction.pkl",
+#             "summative/linear_regression/model_split"
+#         )
+#         print("Model reassembled successfully.")
+#     except FileNotFoundError:
+#         print("Model chunks not found. Skipping reassembly.")
+#         exit()
+#     except Exception as e:
+#         print(f"An error occurred while reassembling the model: {e}")
+#         exit()
 
-    # Load the model once after reassembly
-    with open('prediction.pkl', 'rb') as file:
-        model = pickle.load(file)
-        print("Model loaded successfully.")
+#     # Load the model once after reassembly
+#     with open('prediction.pkl', 'rb') as file:
+#         model = pickle.load(file)
+#         print("Model loaded successfully.")
+
+with open('prediction.pkl', 'rb') as file:
+    model = pickle.load(file)
+    print("Model loaded successfully.")
 
 
 # Define the CaloriesPrediction class (Pydantic model)

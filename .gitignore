@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # My Pickle files
-*.pkl
+#*.pkl
 
 # C extensions
 *.so
