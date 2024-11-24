@@ -47,12 +47,12 @@ model = None
 #         model = pickle.load(file)
 #         print("Model loaded successfully.")
 
+
 with open('prediction.pkl', 'rb') as file:
     model = pickle.load(file)
     print("Model loaded successfully.")
 
 
-# Define the CaloriesPrediction class (Pydantic model)
 class CaloriesPrediction(BaseModel):
     Gender: Literal["Male", "Female"] = Field(..., description="Gender of the person")
     Age: int = Field(..., gt=0, lt=150, description="Age of the person")
@@ -66,6 +66,11 @@ class CaloriesPrediction(BaseModel):
         bmi = self.Weight / (self.Height ** 2)
         bmi_x_duration = bmi * self.Duration
         return bmi_x_duration
+
+
+@app.get("/")
+async def my_first_get_api():
+    return {"message":"Calories Prediction API"}
 
 
 @app.post("/predict/")
