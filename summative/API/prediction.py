@@ -69,8 +69,8 @@ class CaloriesPrediction(BaseModel):
 
 
 @app.get("/")
-async def my_first_get_api():
-    return {"message":"Calories Prediction API"}
+async def home():
+    return {"message":"Calories Burnt Prediction API"}
 
 
 @app.post("/predict/")
