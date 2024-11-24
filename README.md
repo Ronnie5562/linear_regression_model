@@ -35,10 +35,11 @@ python run.py
 - API Documentation: <http://127.0.0.1:8000/docs>
 - Interactive API Testing: <http://127.0.0.1:8000/redoc>
 
-### **5. Explore the Frontend App**:
-- Change directory into the flutter App and run it
+### **5. Run the Frontend App**:
+- Change directory into the flutter App and run these commands:
 ```bash
 cd FlutterApp/calories_app
+flutter pub get
 flutter run
 ```
 
@@ -52,6 +53,8 @@ flutter run
 - **Swagger Documentation**: https://calories-burnt-predicton-cf22bad3d3d6.herokuapp.com/docs
 - **Redoc Documentation**: https://calories-burnt-predicton-cf22bad3d3d6.herokuapp.com/redoc
 
+## Demo Video
+- ### [Watch here](https://www.youtube.com/watch?v=FVuaQnsyDKw)
 
 # Author
 
