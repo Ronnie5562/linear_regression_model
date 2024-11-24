@@ -4,7 +4,7 @@ import uvicorn
 
 args = sys.argv
 
-port = int(os.getenv("PORT", 8000))
+port = int(os.getenv("PORT", 10000))
 host = "0.0.0.0"
 
 if len(args) > 1:
